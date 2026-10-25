@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <title>Study Dashboard | NoteNova</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+
+<body>
+    <div class="dashboard-container">
+
+        <header class="dashboard-header">
+            <h1>✦ NoteNova Dashboard</h1>
+            <p>Your personal study progress tracker</p>
+            <a href="/analyze" class="dashboard-btn">
+                + Analyze New Notes
+            </a>
+        </header>
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+                <h2>Total Study Sessions</h2>
+                <p>{{ total_sessions }}</p>
+            </div>
+
+            <div class="stat-card">
+                <h2>Total Words Analyzed</h2>
+                <p>{{ total_words }}</p>
+            </div>
+
+        </section>
+
+        <section class="history-section">
+            <h2>Recent Study Sessions</h2>
+
+            {% if sessions %}
+
+                {% for session in sessions %}
+                    <div class="session-card">
+
+                        <h3>{{ session["title"] }}</h3>
+
+                        <p class="session-date">
+                            {{ session["created_at"] }}
+                        </p>
+
+                        <p>
+                            <strong>Words:</strong>
+                            {{ session["word_count"] }}
+                        </p>
+
+                        <h4>Summary</h4>
+                        <p>{{ session["summary"] }}</p>
+
+                    </div>
+                {% endfor %}
+
+            {% else %}
+
+                <div class="empty-state">
+                    <h3>No study sessions yet</h3>
+                    <p>
+                        Analyze your first study material
+                        to see your progress here.
+                    </p>
+                </div>
+
+            {% endif %}
+
+        </section>
+
+        <a href="/" class="back-link">
+            ← Back to Homepage
+        </a>
+
+    </div>
+</body>
+</html>
