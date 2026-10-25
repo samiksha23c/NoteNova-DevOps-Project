@@ -1,0 +1,47 @@
+
+name: NoteNova Docker Build and Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  docker-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t notenova:latest .
+
+      - name: Start Docker container
+        run: |
+          docker run -d \
+            --name notenova-container \
+            -p 5000:5000 \
+            notenova:latest
+
+      - name: Check application response
+        run: |
+          for i in {1..15}; do
+            if curl --fail --silent http://localhost:5000/ > /dev/null; then
+              echo "NoteNova Docker container is working!"
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "NoteNova did not become ready."
+          docker logs notenova-container
+          exit 1
+
+      - name: Show container logs
+        if: always()
+        run: docker logs notenova-container || true
+
+      - name: Stop Docker container
+        if: always()
+        run: docker rm -f notenova-container || true
