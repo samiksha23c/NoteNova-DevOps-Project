@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Analyze Notes | NoteNova</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .analyzer {
+            max-width: 800px;
+            margin: 70px auto;
+            padding: 35px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px #ddd;
+        }
+        textarea {
+            width: 100%;
+            min-height: 220px;
+            padding: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font: inherit;
+        }
+        .analyzer button {
+            padding: 14px 25px;
+            background: #7028e4;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .error { color: #b42318; }
+    </style>
+</head>
+<body>
+    <main class="analyzer">
+        <h1>NoteNova Study Analyzer</h1>
+        <p>Paste your notes or upload a TXT file.</p>
+
+        <form method="POST" enctype="multipart/form-data">
+            <label for="notes">Study Notes</label>
+            <textarea id="notes" name="notes"
+                placeholder="Paste your study material here...">{{ notes or '' }}</textarea>
+
+            <p>OR upload a text file:</p>
+            <input type="file" name="file" accept=".txt">
+            <br><br>
+
+            <button type="submit">Submit Notes</button>
+        </form>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        {% if result %}
+            <h2>Uploaded Material</h2>
+            <p>{{ result }}</p>
+        {% endif %}
+
+        <p><a href="/">Back to Homepage</a></p>
+    </main>
+</body>
+</html>
