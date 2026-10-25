@@ -44,6 +44,39 @@ def generate_summary(text, max_sentences=3):
     return " ".join(item[2] for item in selected)
 
 
+def generate_quiz(text, max_questions=5):
+    sentences = re.split(r"(?<=[.!?])\s+", text.strip())
+    keywords = extract_keywords(text, 15)
+
+    questions = []
+    used_answers = set()
+
+    for sentence in sentences:
+        words = re.findall(r"\b[a-zA-Z]{3,}\b", sentence)
+
+        for word in words:
+            if word.lower() in keywords and word.lower() not in used_answers:
+                question = re.sub(
+                    r"\b" + re.escape(word) + r"\b",
+                    "________",
+                    sentence,
+                    count=1,
+                    flags=re.IGNORECASE
+                )
+
+                questions.append({
+                    "question": question,
+                    "answer": word.lower()
+                })
+
+                used_answers.add(word.lower())
+                break
+
+        if len(questions) >= max_questions:
+            break
+
+    return questions
+
 @app.route("/")
 def home():
     return render_template("index.html")
@@ -56,6 +89,7 @@ def analyze():
     notes = ""
     summary = None
     keywords = []
+    quiz = []
 
     if request.method == "POST":
         notes = request.form.get("notes", "").strip()
@@ -77,6 +111,7 @@ def analyze():
                 result = notes[:2000]
                 summary = generate_summary(notes)
                 keywords = extract_keywords(notes)
+                quiz = generate_quiz(notes)
 
     return render_template(
         "analyze.html",
@@ -84,7 +119,8 @@ def analyze():
         error=error,
         notes=notes,
         summary=summary,
-        keywords=keywords
+        keywords=keywords,
+        quiz=quiz
     )
 
 

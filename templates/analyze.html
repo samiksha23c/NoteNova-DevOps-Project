@@ -75,6 +75,59 @@
                 {% endfor %}
             </div>
         {% endif %}
+        
+        
+        {% if quiz %}
+            <hr>
+            <h2>Practice Quiz</h2>
+            <p>Fill in the missing words and check your score.</p>
+
+            <div id="quiz-container">
+                {% for item in quiz %}
+                    <div class="quiz-question">
+                        <p><strong>Question {{ loop.index }}:</strong>
+                            {{ item.question }}
+                        </p>
+
+                        <input
+                            type="text"
+                            class="quiz-answer"
+                            data-answer="{{ item.answer }}"
+                            placeholder="Enter your answer"
+                            autocomplete="off"
+                        >
+                    </div>
+                {% endfor %}
+
+                <button type="button" onclick="checkQuiz()">
+                Check Answers
+                </button>
+
+                <h3 id="quiz-result"></h3>
+            </div>
+        {% endif %}
+
+        <script>
+        function checkQuiz() {
+            const inputs = document.querySelectorAll(".quiz-answer");
+            let score = 0;
+
+            inputs.forEach(input => {
+                const userAnswer = input.value.trim().toLowerCase();
+                const correctAnswer = input.dataset.answer.toLowerCase();
+
+                if (userAnswer === correctAnswer) {
+                    score++;
+                    input.style.border = "2px solid green";
+                } else {
+                    input.style.border = "2px solid red";
+                }
+            });
+
+            document.getElementById("quiz-result").textContent =
+                "Your Score: " + score + " / " + inputs.length;
+        }
+        </script>
 
 
         <p><a href="/">Back to Homepage</a></p>
