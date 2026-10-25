@@ -147,6 +147,29 @@ The project was developed incrementally using Git.
 
 ## Screenshots
 
+### 1. Homepage
+![Homepage](screenshots/01-homepage.png)
+
+### 2. Study Material Input
+![Study Material Input](screenshots/02-study-input.png)
+
+### 3. Text Summarization
+![Summary](screenshots/03-summary.png)
+
+### 4. Keyword Extraction
+![Keywords](screenshots/04-keywords.png)
+
+### 5. Quiz Generation
+![Quiz](screenshots/05-quiz.png)
+
+### 6. Study Dashboard
+![Dashboard](screenshots/06-dashboard.png)
+
+### 7. Pytest Results
+![Pytest](screenshots/09-pytest-all-tests-passed.png)
+
+### 8. GitHub Actions
+![GitHub Actions](screenshots/10-github-actions-success.png)
 ### Automated Testing
 
 ![Pytest Results](screenshots/09-pytest-all-tests-passed.png)
