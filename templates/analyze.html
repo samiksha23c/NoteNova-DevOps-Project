@@ -56,12 +56,29 @@
             <p class="error">{{ error }}</p>
         {% endif %}
 
+        
         {% if result %}
             <h2>Uploaded Material</h2>
             <p>{{ result }}</p>
+
+            <hr>
+
+            <h2>Smart Summary</h2>
+            <div class="result-box">
+            <p>{{ summary }}</p>
+            </div>
+
+            <h2>Important Keywords</h2>
+            <div class="keywords">
+                {% for keyword in keywords %}
+                    <span class="keyword">{{ keyword }}</span>
+                {% endfor %}
+            </div>
         {% endif %}
+
 
         <p><a href="/">Back to Homepage</a></p>
     </main>
 </body>
 </html>
+

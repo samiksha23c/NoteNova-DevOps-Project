@@ -1,1 +1,27 @@
 :root{font-family:Inter,Segoe UI,Arial,sans-serif;color:#1e1b4b;background:#f7f7ff}*{box-sizing:border-box}body{margin:0}.topbar{display:flex;justify-content:space-between;align-items:center;padding:22px max(6vw,20px);background:#fff;border-bottom:1px solid #e7e6fa;color:#77718d}.brand{font-weight:800;font-size:24px;text-decoration:none;color:#6d28d9}.layout{max-width:1100px;margin:auto;padding:40px 24px}.hero{text-align:center;padding:65px 10px 75px}.eyebrow{font-size:12px;letter-spacing:3px;font-weight:800;color:#7c3aed}h1{font-size:clamp(36px,5vw,62px);line-height:1.12;max-width:800px;margin:20px auto}h1 span{color:#7c3aed}.hero p{font-size:18px;line-height:1.7;max-width:650px;margin:0 auto 30px;color:#68637c}.cta{display:inline-block;background:#6d28d9;color:#fff;text-decoration:none;padding:14px 25px;border-radius:12px;font-weight:700}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.features article{background:white;border:1px solid #e7e6fa;border-radius:18px;padding:30px;box-shadow:0 8px 25px #30206009}.emoji{font-size:34px}h2{font-size:20px}.features p{color:#68637c;line-height:1.5}.features small{color:#7c3aed;font-weight:700}footer{text-align:center;color:#77718d;padding:55px 0 15px}@media(max-width:700px){.topbar span{display:none}.features{grid-template-columns:1fr}.hero{padding:45px 0}}
+
+/* NoteNova Analysis Results */
+
+.result-box {
+    background: #f4efff;
+    border-left: 5px solid #7028e4;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    line-height: 1.7;
+}
+
+.keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.keyword {
+    background: #ede3ff;
+    color: #6020bd;
+    padding: 9px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+}
