@@ -188,6 +188,49 @@ The project demonstrates:
 
 **Docker:** Container execution has not yet been verified.
 
+## Docker Containerization
+
+NoteNova supports Docker containerization using Python 3.10.
+
+### Docker Configuration
+
+- **Dockerfile:** Defines the container image and application startup.
+- **.dockerignore:** Excludes unnecessary files from the image.
+- **GitHub Actions:** Automatically builds and tests the Docker container.
+
+### Docker Commands
+
+Build the Docker image:
+
+```bash
+docker build -t notenova:latest .
+```
+
+Run the container:
+
+```bash
+docker run -d -p 5000:5000 --name notenova-container notenova:latest
+```
+
+Open the application at http://localhost:5000.
+
+### Automated Docker Testing
+
+The workflow `.github/workflows/docker-build.yml` performs the following operations:
+
+1. Checks out the repository.
+2. Builds the NoteNova Docker image.
+3. Starts the Docker container.
+4. Checks the Flask application's HTTP response.
+5. Collects container logs.
+6. Stops and removes the container.
+
+**Result:** Docker build and container smoke test completed successfully using GitHub Actions.
+
+### Docker Integration Screenshot
+
+![Docker Build Success](screenshots/11-docker-build-success.png)
+
 ## Future Enhancements
 
 - PDF study material support
