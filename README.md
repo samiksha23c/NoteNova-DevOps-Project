@@ -150,33 +150,30 @@ The project was developed incrementally using Git.
 ### 1. Homepage
 ![Homepage](screenshots/01-homepage.png)
 
-### 2. Study Material Input
-![Study Material Input](screenshots/02-study-input.png)
+### 2. Features
+![Features](screenshots/02-features.png)
 
-### 3. Text Summarization
-![Summary](screenshots/03-summary.png)
+### 3. Study Material Input
+![Study Material Input](screenshots/04-study-material-input.png)
 
-### 4. Keyword Extraction
-![Keywords](screenshots/04-keywords.png)
+### 4. TXT File Upload
+![TXT File Upload](screenshots/05-text-file-upload.png)
 
-### 5. Quiz Generation
-![Quiz](screenshots/05-quiz.png)
+### 5. Summary and Keyword Extraction
+![Summary and Keywords](screenshots/06-summary-keywords.png)
 
-### 6. Study Dashboard
-![Dashboard](screenshots/06-dashboard.png)
+### 6. Quiz Generation
+![Quiz Generator](screenshots/07-quiz-generator.png)
 
-### 7. Pytest Results
-![Pytest](screenshots/09-pytest-all-tests-passed.png)
+### 7. Study Dashboard
+![Study Dashboard](screenshots/08-study-dashboard.png)
 
-### 8. GitHub Actions
-![GitHub Actions](screenshots/10-github-actions-success.png)
-### Automated Testing
-
+### 8. Pytest Results
 ![Pytest Results](screenshots/09-pytest-all-tests-passed.png)
 
-### GitHub Actions CI
+### 9. GitHub Actions CI
+![GitHub Actions](screenshots/10-github-actions-success.png)
 
-![GitHub Actions Success](screenshots/10-github-actions-success.png)
 
 ## DevOps Implementation
 
